@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aplikasi Laporan – Dashboard Corporate</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="logo">
+          <h2>📑 ReportCenter</h2>
+        </div>
+
+        <nav class="menu">
+          <ul>
+            <li>
+              <a class="menu-item active" onclick="showReport('sales')"
+                >Laporan Penjualan</a
+              >
+            </li>
+            <li>
+              <a class="menu-item" onclick="showReport('inventory')"
+                >Laporan Inventori</a
+              >
+            </li>
+            <li>
+              <a class="menu-item" onclick="showReport('financial')"
+                >Laporan Keuangan</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+      <!-- MAIN -->
+      <main class="main-content">
+        <!-- Header -->
+        <header class="header" style="padding: 20px 30px">
+          <h1 style="margin: 0; font-size: 24px">Dashboard Laporan</h1>
+          <p style="opacity: 0.8; margin-top: 4px">
+            Kelola & cetak laporan Anda dengan format profesional
+          </p>
+        </header>
+
+        <!-- Content -->
+        <section class="report-section" style="padding-top: 20px">
+          <!-- FILTER CARD -->
+          <div
+            style="
+              background: white;
+              padding: 25px;
+              border-radius: 12px;
+              box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07);
+              margin-bottom: 25px;
+              display: grid;
+              grid-template-columns: repeat(3, 1fr);
+              gap: 20px;
+            "
+          >
+            <div class="control-group">
+              <label for="reportDate">Tanggal Laporan</label>
+              <input type="date" id="reportDate" />
+            </div>
+
+            <div class="control-group">
+              <label for="department">Departemen</label>
+              <select id="department">
+                <option value="">Semua Departemen</option>
+                <option value="sales">Penjualan</option>
+                <option value="marketing">Marketing</option>
+                <option value="operations">Operasional</option>
+              </select>
+            </div>
+
+            <!-- BUTTONS NEW STYLE -->
+            <div style="display: flex; align-items: flex-end; gap: 10px">
+              <button
+                class="btn btn-primary"
+                style="flex: 1"
+                onclick="generateReport()"
+              >
+                Generate
+              </button>
+              <button
+                class="btn btn-secondary"
+                style="flex: 1"
+                onclick="printReport()"
+              >
+                Print
+              </button>
+              <button
+                class="btn btn-success"
+                style="flex: 1"
+                onclick="exportToPDF()"
+              >
+                PDF
+              </button>
+            </div>
+          </div>
+
+          <!-- REPORT BOX -->
+          <div
+            id="reportContainer"
+            class="report-container"
+            style="border-radius: 12px; padding: 10px"
+          >
+            <!-- Laporan akan muncul otomatis -->
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <!-- Toast -->
+    <div id="toast" class="toast"></div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

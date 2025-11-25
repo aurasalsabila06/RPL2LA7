@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplikasi Laporan - iReport Style</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="logo">
+                <h2>📊 ReportApp</h2>
+            </div>
+            <nav class="menu">
+                <ul>
+                    <li><a href="#" class="menu-item active" onclick="showReport('sales')">Laporan Penjualan</a></li>
+                    <li><a href="#" class="menu-item" onclick="showReport('inventory')">Laporan Inventori</a></li>
+                    <li><a href="#" class="menu-item" onclick="showReport('financial')">Laporan Keuangan</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="header">
+                <div class="header-content">
+                    <h1>Sistem Laporan Terpadu</h1>
+                    <p>Cetak dan export laporan dalam format PDF</p>
+                </div>
+            </header>
+
+            <!-- Report Container -->
+            <section class="report-section">
+                <div class="report-controls">
+                    <div class="control-group">
+                        <label for="reportDate">Tanggal Laporan:</label>
+                        <input type="date" id="reportDate">
+                    </div>
+                    <div class="control-group">
+                        <label for="department">Departemen:</label>
+                        <select id="department">
+                            <option value="">Semua Departemen</option>
+                            <option value="sales">Penjualan</option>
+                            <option value="marketing">Marketing</option>
+                            <option value="operations">Operasional</option>
+                        </select>
+                    </div>
+                    <div class="control-group">
+                        <button class="btn btn-primary" onclick="generateReport()">Generate Laporan</button>
+                        <button class="btn btn-secondary" onclick="printReport()">Print</button>
+                        <button class="btn btn-success" onclick="exportToPDF()">Export PDF</button>
+                    </div>
+                </div>
+
+                <!-- Report Display Area -->
+                <div id="reportContainer" class="report-container">
+                    <!-- Report will be generated here -->
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast"></div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
