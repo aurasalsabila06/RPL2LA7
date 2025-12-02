@@ -25,5 +25,5 @@ Proyek ini memiliki struktur file sebagai berikut:
 # 🛠️ Cara Menjalankan Proyek
 1. Install XAMPP/Laragon atau web server lain.
 2. Clone repository ini:
-https://github.com/aurasalsabila06/RPL2LA7.git 
+https://github.com/aurasalsabila06/RPL2_Aura-Salsabila_4IA26
 
